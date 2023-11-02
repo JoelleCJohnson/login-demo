@@ -7,6 +7,7 @@ export default function Login(){
     const handleGoogleLogin = async () => {
         const provider = new GoogleAuthProvider()
         const response = await signInWithPopup(auth, provider)
+            .catch(error => alert(error.message))
         console.log(response?.user)
     }
 
@@ -14,7 +15,7 @@ export default function Login(){
         <section>
             <h2>Login</h2>
             <LoginForm />
-            <button onClick={handleGoogleLogin}>Sign in with Google:</button>
+            <button onClick={handleGoogleLogin}>Sign in with Google</button>
         </section>
     )
 }
